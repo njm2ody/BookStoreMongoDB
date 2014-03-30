@@ -40,7 +40,7 @@ namespace BookStoreLogicLayer
         public IEnumerable<Book> GetPopularBook() //возвращает 10 самых популярных книг, отсортированных по убыванию
         {
             var all_books = GetAllBooksDictonary();
-            return all_books.OrderByDescending(_ => _.Value).Take(10).Select(_ => Book.FromDataObject(_.Key));
+            return all_books.OrderByDescending(_ => _.Value).Take(10).Select(_ => Book.FromDataObject(_.Key)); //черная магия авторства Денисова
           
         }
 
