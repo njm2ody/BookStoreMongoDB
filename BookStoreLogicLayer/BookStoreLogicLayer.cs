@@ -21,24 +21,7 @@ namespace BookStoreLogicLayer
 
         }
 
-        public IEnumerable<Book> GetPopularBook() //возвращает 10 самых популярных книг, отсортированных по убыванию
-        {
-            OrderRepository orders = new OrderRepository(db);
-            Dictionary<MongoRepository.Book, int> all_books = new Dictionary<MongoRepository.Book,int>(); 
-            foreach (MongoRepository.Order order in orders.GetAll())
-            {
-                foreach (MongoRepository.Book book in order.Bucket)
-                {
-                    if (!all_books.ContainsKey(book)) { all_books.Add(book, 1); }
-                    else { all_books[book]++; }
-                }
-            }
-
-            return all_books.OrderByDescending(_ => _.Value).Take(10).Select(_ => Book.FromDataObject(_.Key));
-          
-        }
-
-        public IEnumerable<Book> GetPopularBook(int count) //возвращает COUNT самых популярных книг, отсортированных по убыванию
+        private Dictionary<MongoRepository.Book, int> GetAllBooksDictonary()
         {
             OrderRepository orders = new OrderRepository(db);
             Dictionary<MongoRepository.Book, int> all_books = new Dictionary<MongoRepository.Book, int>();
@@ -51,6 +34,19 @@ namespace BookStoreLogicLayer
                 }
             }
 
+            return all_books;
+        }
+
+        public IEnumerable<Book> GetPopularBook() //возвращает 10 самых популярных книг, отсортированных по убыванию
+        {
+            var all_books = GetAllBooksDictonary();
+            return all_books.OrderByDescending(_ => _.Value).Take(10).Select(_ => Book.FromDataObject(_.Key));
+          
+        }
+
+        public IEnumerable<Book> GetPopularBook(int count) //возвращает COUNT самых популярных книг, отсортированных по убыванию
+        {
+            var all_books = GetAllBooksDictonary();
             return all_books.OrderByDescending(_ => _.Value).Take(count).Select(_ => Book.FromDataObject(_.Key));
 
         }
