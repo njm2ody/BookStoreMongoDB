@@ -24,14 +24,19 @@ namespace BookStoreLogicLayer
             set { if (value >= 0) { this._CountBookInBucket = value; } else{ throw new ArgumentException(); } } 
         }
 
+        private DateTime _Date;
+        public DateTime Date { set { _Date = value; } get { return _Date; } }
+
         private Order(MongoRepository.Order order) 
         {
             double sum = 0;
-            foreach (MongoRepository.Book b in order.Bucket)
-            { sum += b.Price; }
+            foreach (MongoRepository.Book b in order.Bucket) { sum += b.Price; }
             this._TotalPrice = sum;
-            this.Client = order.Client;
+            this.CountBookInBucket = order.Bucket.Count; 
+            this.Client.FromDataObject(order.Client);
         }
+
+        public Order FromDataObject(MongoRepository.Order order){return new Order(order);}
 
     }
 }

@@ -18,9 +18,23 @@ namespace BookStoreLogicLayer
             set { _LastName = value.ToLower(); } 
             get {return _LastName;} }
 
-        public string PhoneNumber { set; get; }
+        private string _PhoneNumber;
+        public string PhoneNumber {
+            set { if (_PhoneNumber.Length > 0) { _PhoneNumber = value; } else { throw new ArgumentException(); } }
+            get { return _PhoneNumber; }
+        }
+
+
+        public Client FromDataObject(MongoRepository.Client c) { return new Client(c); }
 
         public Client() { }
+
+        private Client(MongoRepository.Client client) 
+        {
+            this.FirstName   = client.FirstName;
+            this.LastName    = client.LastName;
+            this.PhoneNumber = client.PhoneNumber;
+        }
 
         public Client(string name, string last_name, string phone)
         { this.FirstName = name; this.LastName = last_name; this.PhoneNumber = phone;}

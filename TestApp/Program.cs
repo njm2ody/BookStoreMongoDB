@@ -37,14 +37,14 @@ namespace TestApp
            Order new_order = new Order(client, bucket);
            or.Add(new_order);
 
-           Console.Write(new_order.Client.LastName + '\t' + new_order.Client.PhoneNumber + '\t' + new_order.TotalPrice);
+           Console.Write(new_order.Client.LastName + '\t' + new_order.Client.PhoneNumber + '\t');
            Console.WriteLine();
 
            Console.WriteLine("Все книги: ");
            foreach (Book b in br.GetAll()) {  Console.WriteLine(b.Author + '\t' + b.Title); }
 
            Console.WriteLine("Список ордеров: ");
-           foreach (Order order in or.GetAll())  { Console.WriteLine(order.Client.LastName + '\t' + order.Client.PhoneNumber + '\t' + order.TotalPrice);}
+           foreach (Order order in or.GetAll())  { Console.WriteLine(order.Client.LastName + '\t' + order.Client.PhoneNumber + '\t');}
 
             Console.WriteLine("Проверка поиска: ");
             foreach (Book b in br.FindByAuthor("воннегут"))     //проверка регистра 
