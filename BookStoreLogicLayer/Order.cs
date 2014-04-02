@@ -20,8 +20,8 @@ namespace BookStoreLogicLayer
 
         private int _CountBookInBucket;
         public int CountBookInBucket {
-            get { return _CountBookInBucket; } 
-            set { if (value >= 0) { this._CountBookInBucket = value; } else{ throw new ArgumentException(); } } 
+            set { if (value >= 0) { this._CountBookInBucket = value; } else{ throw new ArgumentException(); }
+             get { return _CountBookInBucket; } } 
         }
 
         private DateTime _Date;
