@@ -96,8 +96,8 @@ namespace TestApp
             getDatabase(db_name);
 
             this.cr = new ClientRepository(db);
-            this.or = new OrderRepository(db);
             this.br = new BookRepository(db);
+            this.or = new OrderRepository(db);
 
             Fill();
             View();
