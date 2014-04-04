@@ -16,22 +16,22 @@ namespace MongoRepository
       //FIND
         public IEnumerable<Client> FindByFirstName(string first_name)
         {
-            return base.Find(Query.EQ("FirstName", first_name.ToLower().Trim()));
+            return base.Find(Query.Matches("FirstName", first_name.ToLower().Trim()));
         }
 
         public IEnumerable<Client> FindByLastName(string last_name)
         {
-            return base.Find(Query.EQ("LastName", last_name.ToLower().Trim()));
+            return base.Find(Query.Matches("LastName", last_name.ToLower().Trim()));
         }
 
         public IEnumerable<Client> FindByFullName(string first_name, string last_name)
         {
-            return base.Find(Query.And(Query.EQ("FirstName", first_name.ToLower().Trim()), Query.EQ("LastName", last_name.ToLower().Trim())));
+            return base.Find(Query.And(Query.Matches("FirstName", first_name.ToLower().Trim()), Query.Matches("LastName", last_name.ToLower().Trim())));
         }
 
         public IEnumerable<Client> FindByPhone(string phone)
         {
-            return base.Find(Query.EQ("PhoneNumber", phone.ToLower().Trim()));
+            return base.Find(Query.Matches("PhoneNumber", phone.ToLower().Trim()));
         }
 
     }

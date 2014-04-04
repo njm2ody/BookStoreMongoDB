@@ -26,17 +26,17 @@ namespace MongoRepository
 
         public IEnumerable<Book> FindByTitle(string title)
         {
-            return base.Find(Query.EQ("Title", title.ToLower()));
+            return base.Find(Query.Matches("Title", title.ToLower()));
         }
 
         public IEnumerable<Book> FindByAuthor(string author)
         {
-            return base.Find(Query.EQ("Author", author.ToLower().Trim()));
+            return base.Find(Query.Matches("Author", author.ToLower().Trim()));
         }
 
         public IEnumerable<Book> FindByPublisher(string publisher)
         {
-            return base.Find(Query.EQ("Publisher", publisher.ToLower().Trim()));
+            return base.Find(Query.Matches("Publisher", publisher.ToLower().Trim()));
         }
 
         public IEnumerable<Book> FindByCount(int count)

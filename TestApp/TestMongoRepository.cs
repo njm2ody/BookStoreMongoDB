@@ -79,6 +79,13 @@ namespace TestApp
             Console.WriteLine("---------------------------------------------------------------");
         }
 
+        public void Find(string query) 
+        {
+            Console.WriteLine("Поиск по книгам, запрос - '" + query + "' ");
+            foreach (Book b in br.FindByAuthor(query)) { Console.WriteLine(b.Author + '\t' + b.Title); }
+            Console.WriteLine("---------------------------------------------------------------");
+        }
+
         public void Fill()
         {
             FillBookRepository();
