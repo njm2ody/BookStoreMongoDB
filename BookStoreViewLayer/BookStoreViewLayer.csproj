@@ -77,6 +77,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BookStoreLogicLayer\BookStoreLogicLayer.csproj">
+      <Project>{8720ecdd-5ba2-44e3-a0c1-db069cdb532e}</Project>
+      <Name>BookStoreLogicLayer</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
