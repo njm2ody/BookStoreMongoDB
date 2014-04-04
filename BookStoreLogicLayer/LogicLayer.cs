@@ -55,23 +55,31 @@ namespace BookStoreLogicLayer
           
         }
 
-        public IEnumerable<Book> GetPopularBook(int count) //возвращает COUNT самых популярных книг, отсортированных по убыванию
+        public IEnumerable<Book>    GetPopularBook(int count) //возвращает COUNT самых популярных книг, отсортированных по убыванию
         {
             var all_books = GetAllBooksDictonary();
             return all_books.OrderByDescending(_ => _.Value).Take(count).Select(_ => Book.FromDataObject(_.Key));
 
         }
 
-        public IEnumerable<string> GetPopularAuthors() 
+        public IEnumerable<string>  GetPopularAuthors() 
         {
             var all_authors = GetAllAuthorsDictonary();
             return all_authors.OrderByDescending(_ => _.Value).ToList().Take(10).Select(_ => _.Key);
         }
 
-        public IEnumerable<string> GetPopularAuthors(int count)
+        public IEnumerable<string>  GetPopularAuthors(int count)
         {
             var all_authors = GetAllAuthorsDictonary();
             return all_authors.OrderByDescending(_ => _.Value).ToList().Take(count).Select(_ => _.Key);
+        }
+
+        public IEnumerable<MongoRepository.Order> GetLatestOrders() 
+        {
+            OrderRepository orders = new OrderRepository(db);
+            return orders.GetAll().OrderByDescending(e => e.Date);
+
+            //return new List<Order>();
         }
     }
 }
