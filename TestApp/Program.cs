@@ -9,7 +9,7 @@ namespace TestApp
 
             Console.WriteLine("Data Layer tests start..");
             TestMongoRepository test = new TestMongoRepository(db_name);
-            //test.View();
+            test.View();
             test.Find("чехов");
             Console.WriteLine("All good.");
             //TODO сделать  нормальные юнит тесты, а не это безобразие

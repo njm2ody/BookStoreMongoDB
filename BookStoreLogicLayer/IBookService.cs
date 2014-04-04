@@ -9,5 +9,7 @@ namespace BookStoreLogicLayer
     interface IBookService
     {
         IEnumerable<Book> GetPopularBook();
+        IEnumerable<string> GetPopularAuthors();
+        
     }
 }

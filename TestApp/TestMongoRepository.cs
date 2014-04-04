@@ -75,7 +75,7 @@ namespace TestApp
         public void ViewOrderRepository() 
         {
             Console.WriteLine("Список ордеров: ");
-            foreach (Order order in or.GetAll()) { Console.WriteLine(order.Client.LastName + '\t' + order.Client.PhoneNumber + '\t' + order.Bucket.First().Title); }
+            foreach (Order order in or.GetAll()) { Console.WriteLine(order.Client.LastName + '\t' + order.Client.PhoneNumber + '\t' + order.Bucket.First().Title + '\t' + order.Date); }
             Console.WriteLine("---------------------------------------------------------------");
         }
 

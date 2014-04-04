@@ -28,13 +28,13 @@ namespace MongoRepository
         private DateTime _Date;
         public DateTime Date { set { _Date = value; } get { return _Date; } }
 
-        public Order() { this.Bucket = new List<Book>(); this.Date = new DateTime(); }
+        public Order() { this.Bucket = new List<Book>(); this.Date = DateTime.Now; }
 
         public Order(Client client, List<Book> list_of_book) 
         { 
           this.Client = client; 
           this.Bucket = list_of_book;
-          this.Date = new DateTime();
+          this.Date = DateTime.Now;
         }
 
         public Order(Client client, List<Book> list_of_book, DateTime date)
