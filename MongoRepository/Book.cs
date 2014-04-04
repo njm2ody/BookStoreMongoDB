@@ -29,19 +29,19 @@ namespace MongoRepository
 
         private string _Title;
         public string Title { 
-            set { _Title = value.ToLower(); } 
+            set { _Title = value.ToLower().Trim(); } 
             get { return _Title;}
         }
 
         private string _Author;
         public string Author { 
-            set { _Author = value.ToLower();}
+            set { _Author = value.ToLower().Trim();}
             get {return _Author; }
         }
 
         private string _Publisher;
         public string Publisher {
-            set { _Publisher = value.ToLower() ;}
+            set { _Publisher = value.ToLower().Trim();}
             get { return _Publisher;}
         }
 

@@ -13,25 +13,27 @@ namespace MongoRepository
         [BsonId]
         public ObjectId Id;
 
-        //private string Name;
         private string _FirstName;
         public string FirstName {
-            set { _FirstName = value.ToLower(); }
+            set { _FirstName = value.ToLower().Trim(); }
             get { return _FirstName; }}
 
         private string _LastName;
         public string LastName { 
-            set { _LastName = value.ToLower(); } 
+            set { _LastName = value.ToLower().Trim(); } 
             get {return _LastName;} }
 
-        public string PhoneNumber { set; get; }
+        private string _PhoneNumber;
+        public string PhoneNumber { 
+            set { this._PhoneNumber = value.ToLower().Trim(); } 
+            get {return _PhoneNumber;} }
 
         public Client() { }
 
-        public Client(string name, string last_name, string phone)
-        { this.FirstName = name; this.LastName = last_name; this.PhoneNumber = phone;}
+        public Client(string first_name, string last_name, string phone)
+        { this.FirstName = first_name; this.LastName = last_name; this.PhoneNumber = phone;}
 
-        public Client(string name, string last_name)
-        { this.FirstName = name; this.LastName = last_name;}
+        public Client(string first_name, string last_name)
+        { this.FirstName = first_name; this.LastName = last_name;}
     }
 }

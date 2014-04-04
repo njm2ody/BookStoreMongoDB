@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace TestApp
 {
-    class TestMongoRepository
+    public class TestMongoRepository
     {
         private MongoDatabase db;
         private BookRepository br;
@@ -40,9 +40,10 @@ namespace TestApp
 
         public void FillClientRepository() 
         {
-            cr.Add(new Client("Иван", "Иванов",   "+123456789"));
-            cr.Add(new Client("Петя", "Петров", "+876543219"));
-            cr.Add(new Client("Вася", "Пупкин",   "+856749845"));
+            cr.Add(new Client("Иван", "Иванов",         "+123456789"));
+            cr.Add(new Client("Петя", "Петров",         "+876543219"));
+            cr.Add(new Client("Вася", "Пупкин",         "+856749845"));
+            cr.Add(new Client("Вася", "Василевский",    "+867657845"));
         }
 
         public void FillOrderRepository() 
@@ -100,8 +101,8 @@ namespace TestApp
             this.or = new OrderRepository(db);
 
             Fill();
-            View();
-            Clear();
+            //View();
+            //Clear();
         }
         
    }

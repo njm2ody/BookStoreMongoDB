@@ -31,12 +31,12 @@ namespace MongoRepository
 
         public IEnumerable<Book> FindByAuthor(string author)
         {
-            return base.Find(Query.EQ("Author", author.ToLower()));
+            return base.Find(Query.EQ("Author", author.ToLower().Trim()));
         }
 
         public IEnumerable<Book> FindByPublisher(string publisher)
         {
-            return base.Find(Query.EQ("Publisher", publisher.ToLower()));
+            return base.Find(Query.EQ("Publisher", publisher.ToLower().Trim()));
         }
 
         public IEnumerable<Book> FindByCount(int count)

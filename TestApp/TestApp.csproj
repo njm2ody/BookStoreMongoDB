@@ -58,6 +58,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BookStoreLogicLayer\BookStoreLogicLayer.csproj">
+      <Project>{8720ecdd-5ba2-44e3-a0c1-db069cdb532e}</Project>
+      <Name>BookStoreLogicLayer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MongoRepository\MongoRepository.csproj">
       <Project>{1f58e658-7bdf-45de-9f14-647367353bbf}</Project>
       <Name>MongoRepository</Name>

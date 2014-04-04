@@ -49,6 +49,11 @@ namespace MongoRepository
                 return cursor.Cast<T>();
             }
 
+            public T FindOne(IMongoQuery query)
+            {
+                return _collection.FindOneAs<T>();
+            }
+
             public void Delete(T entity)
             {
                 throw new NotImplementedException();
