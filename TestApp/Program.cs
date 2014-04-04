@@ -17,10 +17,11 @@ namespace TestApp
             TestLogicLayer test_logic = new TestLogicLayer(db_name);
             test_logic.TestPopularBooks();
             test_logic.TestPopularAuthors();
+            test_logic.TestLatestOrders();
             Console.WriteLine("All good.");
 
 
-            test.Clear();
+            //test.Clear();
             Console.ReadKey();
         }
     }

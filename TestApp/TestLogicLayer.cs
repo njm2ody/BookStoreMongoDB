@@ -34,6 +34,14 @@ namespace TestApp
             Console.WriteLine("---------------------------------------------------------------");
         }
 
+        public void TestLatestOrders() 
+        {
+            Console.WriteLine("Последние заказы: ");
+            foreach (MongoRepository.Order i in logic.GetLatestOrders()) { Console.WriteLine(i.Date.ToString() + '\t' + i.Client.LastName); }
+            Console.WriteLine("---------------------------------------------------------------");
+
+        }
+
         public TestLogicLayer(string db_name) 
         {
             getDatabase(db_name);
