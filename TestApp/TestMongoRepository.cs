@@ -31,8 +31,6 @@ namespace TestApp
 
         public void FillBookRepository() 
         {
-            this.br = new BookRepository(db);
-
            br.Add(new Book("Сирены Титана", "Курт Воннегут", "Эксмо", 1, 100)); 
            br.Add(new Book ("Страх и ненависть в Лас-Вегасе", "Хантер Томпсон", "Эксмо", 1, 150.50));
            br.Add(new Book("Крестовый поход детей", "Курт Воннегут", "Эксмо", 1, 200));
@@ -42,8 +40,6 @@ namespace TestApp
 
         public void FillClientRepository() 
         {
-            this.cr = new ClientRepository(db);
-
             cr.Add(new Client("Иван", "Иванов",   "+123456789"));
             cr.Add(new Client("Петя", "Петров", "+876543219"));
             cr.Add(new Client("Вася", "Пупкин",   "+856749845"));
@@ -51,8 +47,6 @@ namespace TestApp
 
         public void FillOrderRepository() 
         {
-            this.or = new OrderRepository(db);
-
             Client client = new Client();
 
             client = cr.GetAll().First();
@@ -84,18 +78,29 @@ namespace TestApp
             Console.WriteLine("---------------------------------------------------------------");
         }
 
+        public void Fill()
+        {
+            FillBookRepository();
+            FillClientRepository();
+            FillOrderRepository();
+        }
+
+        public void View()
+        {
+            ViewBookRepository();
+            ViewClientRepository();
+            ViewOrderRepository();
+        }
         public TestMongoRepository(string db_name) 
         {
             getDatabase(db_name);
 
-            FillBookRepository();
-            FillClientRepository();
-            FillOrderRepository();
+            this.cr = new ClientRepository(db);
+            this.or = new OrderRepository(db);
+            this.br = new BookRepository(db);
 
-            ViewBookRepository();
-            ViewClientRepository();
-            ViewOrderRepository();
-
+            Fill();
+            View();
             Clear();
         }
         
