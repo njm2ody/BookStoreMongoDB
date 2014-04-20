@@ -1,0 +1,17 @@
+﻿<Window x:Class="GUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <DataGrid Name="BooksGrid" ItemsSource="{Binding BookListViewModel.Books, Mode=OneWay}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Title"          Binding="{Binding Title}" />
+                <DataGridTextColumn Header="Author"         Binding="{Binding Author}" />
+                <DataGridTextColumn Header="Price"          Binding="{Binding Price}" />
+                <DataGridTextColumn Header="Count"          Binding="{Binding Count}" />
+                <DataGridTextColumn Header="Publisher"      Binding="{Binding Publisher}" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Window>

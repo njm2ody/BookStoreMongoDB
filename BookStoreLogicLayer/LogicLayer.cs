@@ -16,6 +16,18 @@ namespace BookStoreLogicLayer
             this.db = server.GetDatabase(db_name);
         }
 
+        public List<Book> GetAllBooks() 
+        {
+            List<Book> result = new List<Book>();
+            foreach (MongoRepository.Book raw_book in new BookRepository(db).GetAll())
+            {
+                Book b = new Book(raw_book);
+                result.Add(b);
+            }
+
+            return result;
+        }
+
         private Dictionary<MongoRepository.Book, int> GetAllBooksDictonary()
         {
             OrderRepository orders = new OrderRepository(db);
@@ -48,7 +60,7 @@ namespace BookStoreLogicLayer
             return all_authors;
         }
 
-        public IEnumerable<Book> GetPopularBook() //возвращает 10 самых популярных книг, отсортированных по убыванию
+        public IEnumerable<Book>    GetPopularBook() //возвращает 10 самых популярных книг, отсортированных по убыванию
         {
             var all_books = GetAllBooksDictonary();
             return all_books.OrderByDescending(_ => _.Value).Take(10).Select(_ => Book.FromDataObject(_.Key)); //черная магия авторства Денисова

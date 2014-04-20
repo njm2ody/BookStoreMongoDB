@@ -69,7 +69,7 @@ namespace BookStoreLogicLayer
             this.Price = price;
         }
 
-        private Book(MongoRepository.Book b)
+        public Book(MongoRepository.Book b)
         {
             this.Title = b.Title;
             this.Author = b.Author;
