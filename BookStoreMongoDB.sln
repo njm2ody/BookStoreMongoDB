@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookStoreLogicLayer", "Book
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUI", "GUI\GUI.csproj", "{BF33DE20-D67A-4C0C-B534-B972E5F2AE0A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUI_Form", "GUI_Form\GUI_Form.csproj", "{8AA67427-6709-4AAF-8DDC-A8306A1CAE63}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,10 +31,6 @@ Global
 		{BF33DE20-D67A-4C0C-B534-B972E5F2AE0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF33DE20-D67A-4C0C-B534-B972E5F2AE0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF33DE20-D67A-4C0C-B534-B972E5F2AE0A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8AA67427-6709-4AAF-8DDC-A8306A1CAE63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8AA67427-6709-4AAF-8DDC-A8306A1CAE63}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8AA67427-6709-4AAF-8DDC-A8306A1CAE63}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8AA67427-6709-4AAF-8DDC-A8306A1CAE63}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
