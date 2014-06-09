@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MongoDB.Bson;
 
 namespace BookStoreLogicLayer
 {
     public class Book
     {
+
+        public ObjectId Id { set; get; }
+
         private int _Count;
         public int Count
         {
@@ -76,6 +80,7 @@ namespace BookStoreLogicLayer
             this.Publisher = b.Publisher;
             this.Count = b.Count;
             this.Price = b.Price;
+            this.Id = b.Id;
         }
 
         public static Book FromDataObject(MongoRepository.Book b){

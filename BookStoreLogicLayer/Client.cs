@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MongoDB.Bson;
 
 namespace BookStoreLogicLayer
 {
     public class Client
     {
+        public ObjectId Id { set; get; }
+
         private string _FirstName;
         public string FirstName {
             set { _FirstName = value.ToLower(); }
@@ -34,6 +37,7 @@ namespace BookStoreLogicLayer
             this.FirstName   = client.FirstName;
             this.LastName    = client.LastName;
             this.PhoneNumber = client.PhoneNumber;
+            this.Id = client.Id;
         }
 
         public Client(string name, string last_name, string phone)
